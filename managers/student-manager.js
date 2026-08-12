@@ -40,16 +40,19 @@ export default class StudentManager{
 
     countStudentOfEachMajor(){
         return this.students_data.reduce((acc, curr) => {
-            if(curr.major === 'Computer Science'){
-                acc.computer_Science++;
-            }else if(curr.major === 'Marketing'){
-                acc.marketing++;
-            }else{
-                acc.architecture++;
+            // curr.major = "CS"
+            // acc = {}
+            // acc[curr.major] = [curr.name]; => {"CS" : ['Lwin']}
+            // acc[curr.major] === acc[CS]
+
+            if(!acc[curr.major]){       
+                acc[curr.major] = [];
             }
 
+            acc[curr.major].push(curr.name);
+
             return acc;
-        }, {computer_Science : 0, marketing: 0, Architecture : 0});
+        }, {});
     }
 }
 
