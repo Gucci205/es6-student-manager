@@ -42,8 +42,8 @@ export default class StudentManager{
         return this.students_data.reduce((acc, curr) => {
             // curr.major = "CS"
             // acc = {}
-            // acc[curr.major] = [curr.name]; => {"CS" : ['Lwin']}
-            // acc[curr.major] === acc[CS]
+            // acc[curr.major] === acc["CS"]
+            // acc[curr.major] = [curr.name]; => {acc["CS"] : ['Lwin']}
 
             if(!acc[curr.major]){       
                 acc[curr.major] = [];
