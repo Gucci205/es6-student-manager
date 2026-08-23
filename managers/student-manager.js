@@ -40,17 +40,8 @@ export default class StudentManager{
 
     countStudentOfEachMajor(){
         return this.students_data.reduce((acc, curr) => {
-            // curr.major = "CS"
-            // acc = {}
-            // acc[curr.major] === acc["CS"]
-            // acc[curr.major] = [curr.name]; => {acc["CS"] : ['Lwin']}
-
-            if(!acc[curr.major]){       
-                acc[curr.major] = [];
-            }
-
-            acc[curr.major].push(curr.name);
-
+            acc[curr.major] = (acc[curr.major] || 0) + 1;   //Take the current count for this major. If it doesn't exist yet, use 0. Then add 1.
+            
             return acc;
         }, {});
     }
