@@ -21,15 +21,15 @@ export default class StudentManager{
         return this.students_data = this.students_data.filter(student => student.id !== id);
     }
 
-    updateStudent(id, { name, age, email, major } = {}){    //parameter destructuring
+    updateStudent(id, updatedInfo){     //only 2 parameters, doesn't need to use rest in this update method
         let student = this.findStudent(id);
+        const updatedStudent = {...student, ...updatedInfo};
 
-        if(student){
-            student.name = name;
-            student.age = age;
-            student.email = email;
-            student.major = major;
-        }
+        this.students_data = this.students_data.map((student) => {
+            return student.id === updatedStudent.id ?  updatedStudent : student;
+        });
+
+        return this.students_data;
     }
 
     studentReport(){

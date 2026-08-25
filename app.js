@@ -18,23 +18,23 @@ const studentManager = new StudentManager();    //create a studentManager object
 
 studentManager.addStudent(student, student2, student3, student4, student5);     //add each student object to studentManger object as a parameter through method 
 
-console.log(studentManager.returnStudents());    //receive the student object from StudentManager 
+// console.log(studentManager.returnStudents());    //receive the student object from StudentManager 
 
 // console.log(studentManager.findStudent('001'));     //find the student object with this id
 
 // console.log(studentManager.removeStudent('002'));   //only keep the student objects which doesn't match this id
 
-// studentManager.updateStudent('001', 
-//     {
-//         name: 'Berry',
-//         age: 30,
-//         email: 'berry@example.com',
-//         major: 'Bussiness'
-//     }
-// );
+console.log(studentManager.updateStudent('001', 
+    {
+        name: 'Berry',
+        // age: 30,
+        email: 'berry@example.com',
+        // major: 'Bussiness'
+    }
+));
 
 // console.log(studentManager.findStudent('001'));
 
-// console.log(studentManager.studentReport());
+console.log(studentManager.studentReport());
 
-console.log(studentManager.countStudentOfEachMajor());
+// console.log(studentManager.countStudentOfEachMajor());
