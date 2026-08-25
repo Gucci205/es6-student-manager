@@ -1,4 +1,5 @@
 // A class should be responsible for its data, not for displaying it.
+//A blue print of a student manager
 
 export default class StudentManager{
     constructor(){
