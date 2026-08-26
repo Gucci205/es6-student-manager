@@ -46,6 +46,18 @@ export default class StudentManager{
             return acc;
         }, {});
     }
+
+    addCourse(id, ...newCourse){
+        let student = this.findStudent(id);
+
+        if(student){
+            student.courses.push(...newCourse);
+            return student;
+        }
+
+        console.log('No student found with this ID');
+
+    }
 }
 
 
