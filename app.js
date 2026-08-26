@@ -60,3 +60,6 @@ console.log(studentManager.addCourse('002',
         score: 173
     }
 ));
+
+//remove a course from a student
+console.log(studentManager.removeCourse('002', 'A04'));

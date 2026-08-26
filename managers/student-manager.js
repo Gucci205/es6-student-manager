@@ -19,10 +19,10 @@ export default class StudentManager{
     }
 
     removeStudent(id){
-        return this.students_data = this.students_data.filter(student => student.id !== id);
+        return this.students_data.filter(student => student.id !== id);
     }
 
-    updateStudent(id, updatedInfo){     //only 2 parameters, doesn't need to use rest in this update method
+    updateStudent(id, updatedInfo){     //only 2 parameters, doesn't need to use 'rest' in this update method
         let student = this.findStudent(id);
         const updatedStudent = {...student, ...updatedInfo};
 
@@ -56,7 +56,16 @@ export default class StudentManager{
         }
 
         console.log('No student found with this ID');
+    }
 
+    removeCourse(id, courseId){
+        let student = this.findStudent(id);
+        if(student){
+            student.courses = student.courses.filter(course => course.id !== courseId);
+            return student;
+        }
+
+        console.log('No student found with this ID');
     }
 }
 
