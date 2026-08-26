@@ -107,4 +107,4 @@ npm start
 
 This is a learning project.
 
-Rather than focusing on UI/UX, the project runs in the terminal so I can focus on JavaScript logic and understand when and why modern JavaScript features are used.
+Rather than focusing on UI/UX, the project runs in the terminal.
