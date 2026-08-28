@@ -62,7 +62,10 @@ console.log(studentManager.addCourse('002',
 ));
 
 //find courses from a student
-console.log(studentManager.findCourse('002', 'A03'));
+// console.log(studentManager.findCourse('002', 'A03'));
 
 //remove a course from a student
 // console.log(studentManager.removeCourse('002', 'A04'));
+
+//update score of a student
+console.log(studentManager.updateCourseScore('002', 'A03', 111));

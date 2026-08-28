@@ -77,6 +77,21 @@ export default class StudentManager{
 
         console.log('No student found with this ID');
     }
+
+    updateCourseScore(id, courseId, updatedScore){
+        const student = this.findStudent(id);
+
+        if(student){
+            student.courses.find((course) => {
+                if(course.id === courseId){
+                    course.score = updatedScore;
+                }
+            });
+            return student;
+        }
+
+        console.log('No student found with this ID');
+    }
 }
 
 
