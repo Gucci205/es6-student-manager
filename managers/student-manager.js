@@ -23,7 +23,7 @@ export default class StudentManager{
     }
 
     updateStudent(id, updatedInfo){     //only 2 parameters, doesn't need to use 'rest' in this update method
-        let student = this.findStudent(id);
+        const student = this.findStudent(id);
         const updatedStudent = {...student, ...updatedInfo};
 
         this.students_data = this.students_data.map((student) => {
@@ -48,7 +48,7 @@ export default class StudentManager{
     }
 
     addCourse(id, ...newCourse){
-        let student = this.findStudent(id);
+        const student = this.findStudent(id);
 
         if(student){
             student.courses.push(...newCourse);
@@ -59,10 +59,20 @@ export default class StudentManager{
     }
 
     removeCourse(id, courseId){
-        let student = this.findStudent(id);
+        const student = this.findStudent(id);
         if(student){
             student.courses = student.courses.filter(course => course.id !== courseId);
             return student;
+        }
+
+        console.log('No student found with this ID');
+    }
+
+    findCourse(id, courseId){
+        const student = this.findStudent(id);
+
+        if(student){
+            return student.courses.find(course => course.id === courseId);
         }
 
         console.log('No student found with this ID');
