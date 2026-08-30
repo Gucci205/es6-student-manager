@@ -75,7 +75,7 @@ export default class StudentManager{
             return student;
         }
 
-        console.log('No student found with this ID');
+        console.log('No student found with this ID, try another Id');
     }
 
     updateCourseScore(id, courseId, updatedScore){
@@ -89,14 +89,20 @@ export default class StudentManager{
     }
 
     studentAcademicSummary(id){
-        let student = this.findStudent(id);
-        let totalScore = 0;
-        student.courses.forEach((course) => {
-            totalScore += course.score;
-        })
+        const student = this.findStudent(id);
+        const {name, courses = []} = student;
+        let totalScore = '';
+        let averageScore = '';
 
-        let averageScore = totalScore / student.courses.length;
-        const {name, courses} = student;
+        if(student.courses){
+            totalScore = student.courses.reduce((acc, curr) => {
+                acc += curr.score;
+
+                return acc;
+            }, 0);
+
+            averageScore = courses.length > 0 ? totalScore / courses.length : 0;
+        }
 
         return {name, courses, averageScore};
     }
