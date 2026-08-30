@@ -58,16 +58,6 @@ export default class StudentManager{
         console.log('No student found with this ID');
     }
 
-    removeCourse(id, courseId){
-        const student = this.findStudent(id);
-        if(student){
-            student.courses = student.courses.filter(course => course.id !== courseId);
-            return student;
-        }
-
-        console.log('No student found with this ID');
-    }
-
     findCourse(id, courseId){
         const student = this.findStudent(id);
 
@@ -78,6 +68,16 @@ export default class StudentManager{
         console.log('No student found with this ID, try another Id');
     }
 
+    removeCourse(id, courseId){
+        const student = this.findStudent(id);
+        if(student){
+            student.courses = student.courses.filter(course => course.id !== courseId);
+            return student;
+        }
+
+        console.log('No student found with this ID');
+    }
+
     updateCourseScore(id, courseId, updatedScore){
         let course = this.findCourse(id, courseId);
 
@@ -86,6 +86,19 @@ export default class StudentManager{
         }
 
         return this.findStudent(id);
+    }
+
+    studentAcademicSummary(id){
+        let student = this.findStudent(id);
+        let totalScore = 0;
+        student.courses.forEach((course) => {
+            totalScore += course.score;
+        })
+
+        let averageScore = totalScore / student.courses.length;
+        const {name, courses} = student;
+
+        return {name, courses, averageScore};
     }
 }
 
