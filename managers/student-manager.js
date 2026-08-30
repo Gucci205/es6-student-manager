@@ -75,22 +75,17 @@ export default class StudentManager{
             return student.courses.find(course => course.id === courseId);
         }
 
-        console.log('No student found with this ID');
+        console.log('No student found with this ID, try another Id');
     }
 
     updateCourseScore(id, courseId, updatedScore){
-        const student = this.findStudent(id);
+        let course = this.findCourse(id, courseId);
 
-        if(student){
-            student.courses.find((course) => {
-                if(course.id === courseId){
-                    course.score = updatedScore;
-                }
-            });
-            return student;
+        if(course){
+            course.score = updatedScore;
         }
 
-        console.log('No student found with this ID');
+        return this.findStudent(id);
     }
 }
 
