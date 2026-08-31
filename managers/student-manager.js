@@ -19,18 +19,22 @@ export default class StudentManager{
     }
 
     removeStudent(id){
-        return this.students_data.filter(student => student.id !== id);
+        this.students_data = this.students_data.filter(student => student.id !== id);
+        return this.students_data;
     }
 
     updateStudent(id, updatedInfo){     //only 2 parameters, doesn't need to use 'rest' in this update method
         const student = this.findStudent(id);
-        const updatedStudent = {...student, ...updatedInfo};
 
-        this.students_data = this.students_data.map((student) => {
-            return student.id === updatedStudent.id ?  updatedStudent : student;
-        });
+        if(student){
+            const updatedStudent = {...student, ...updatedInfo};
+            
+            this.students_data = this.students_data.map((student) => {
+                return student.id === updatedStudent.id ?  updatedStudent : student;
+            });
+        }
 
-        return this.students_data;
+        return student;
     }
 
     studentReport(){
@@ -55,7 +59,7 @@ export default class StudentManager{
             return student;
         }
 
-        console.log('No student found with this ID');
+        console.log('No student found with this ID, try another ID');
     }
 
     findCourse(id, courseId){
@@ -65,17 +69,18 @@ export default class StudentManager{
             return student.courses.find(course => course.id === courseId);
         }
 
-        console.log('No student found with this ID, try another Id');
+        console.log('No student found with this ID, try another ID');
     }
 
     removeCourse(id, courseId){
         const student = this.findStudent(id);
+
         if(student){
             student.courses = student.courses.filter(course => course.id !== courseId);
             return student;
         }
 
-        console.log('No student found with this ID, try another Id');
+        console.log('No student found with this ID, try another ID');
     }
 
     updateCourseScore(id, courseId, updatedScore){
