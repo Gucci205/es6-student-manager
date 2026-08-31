@@ -106,6 +106,17 @@ export default class StudentManager{
 
         return {name, courses, averageScore};
     }
+
+    searchStudents(searchItems){
+        let result = this.students_data.filter((student) => {
+            const { name, major } = student;
+            return name.toLowerCase().includes(searchItems.toLowerCase()) 
+            || major.toLowerCase().includes(searchItems.toLowerCase());
+        });
+
+        return result;
+    }
+
 }
 
 

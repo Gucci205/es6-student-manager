@@ -71,4 +71,7 @@ console.log(studentManager.addCourse('002',
 // console.log(studentManager.updateCourseScore('002', 'A03', 111));
 
 // summarizing a student academic report
-console.log(studentManager.studentAcademicSummary('001'));
+// console.log(studentManager.studentAcademicSummary('001'));
+
+// search students not just by ID
+console.log(studentManager.searchStudents('Tony'));
