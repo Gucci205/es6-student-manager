@@ -24,17 +24,19 @@ export default class StudentManager{
     }
 
     updateStudent(id, updatedInfo){     //only 2 parameters, doesn't need to use 'rest' in this update method
-        const student = this.findStudent(id);
+        let oldStudent = this.findStudent(id);
 
-        if(student){
-            const updatedStudent = {...student, ...updatedInfo};
-            
+        if(oldStudent){
+            const updatedStudent = {...oldStudent, ...updatedInfo};
+            oldStudent = updatedStudent;
+
             this.students_data = this.students_data.map((student) => {
-                return student.id === updatedStudent.id ?  updatedStudent : student;
+                return student.id === oldStudent.id ?  oldStudent : student;
             });
+            
         }
-
-        return student;
+        
+        return oldStudent;
     }
 
     studentReport(){
@@ -95,21 +97,24 @@ export default class StudentManager{
 
     studentAcademicSummary(id){
         const student = this.findStudent(id);
-        const {name, courses = []} = student;
-        let totalScore = '';
-        let averageScore = '';
+        
+        if(student){
+            let totalScore = '';
+            let averageScore = '';
+            const {name, courses = []} = student;
 
-        if(student.courses){
-            totalScore = student.courses.reduce((acc, curr) => {
+            totalScore = courses.reduce((acc, curr) => {
                 acc += curr.score;
 
                 return acc;
             }, 0);
 
             averageScore = courses.length > 0 ? totalScore / courses.length : 0;
+
+            return {name, courses, averageScore};
         }
 
-        return {name, courses, averageScore};
+        console.log('No student with this ID, try another one');
     }
 
     searchStudents(searchItems){

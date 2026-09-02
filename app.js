@@ -25,13 +25,13 @@ const studentManager = new StudentManager();
 studentManager.addStudent(student, student2, student3, student4, student5);     
 
 //receive the student object from StudentManager 
-console.log(studentManager.returnStudents());    
+// console.log(studentManager.returnStudents());    
 
 //find the student object with this id
-console.log(studentManager.findStudent('002'));     
+// console.log(studentManager.findStudent('001'));     
 
 //only keep the student objects which doesn't match this id
-console.log(studentManager.removeStudent('002'));   
+// console.log(studentManager.removeStudent('002'));   
 
 //update the student info
 console.log(studentManager.updateStudent('001', 
@@ -42,36 +42,36 @@ console.log(studentManager.updateStudent('001',
 ));
 
 //print students report
-console.log(studentManager.studentReport());
+// console.log(studentManager.studentReport());
 
 //count the number of student in each major
-console.log(studentManager.countStudentOfEachMajor());
+// console.log(studentManager.countStudentOfEachMajor());
 
 //add course to the student
-console.log(studentManager.addCourse('003', 
-    {
-        id: 'A03',
-        subject_name: 'Cloud Engineer',
-        score: 143
-    },
-    {
-        id: 'A04',
-        subject_name: 'Data Analyst',
-        score: 173
-    }
-));
+// console.log(studentManager.addCourse('003', 
+//     {
+//         id: 'A03',
+//         subject_name: 'Cloud Engineer',
+//         score: 143
+//     },
+//     {
+//         id: 'A04',
+//         subject_name: 'Data Analyst',
+//         score: 173
+//     }
+// ));
 
 //find courses from a student
-console.log(studentManager.findCourse('003', 'A03'));
+// console.log(studentManager.findCourse('003', 'A03'));
 
 //remove a course from a student
-console.log(studentManager.removeCourse('003', 'A04'));
+// console.log(studentManager.removeCourse('003', 'A04'));
 
 //update score of a student
-console.log(studentManager.updateCourseScore('001', 'A11', 111));
+// console.log(studentManager.updateCourseScore('001', 'A11', 111));
 
 // summarizing a student academic report
-console.log(studentManager.studentAcademicSummary('001'));
+// console.log(studentManager.studentAcademicSummary('1'));
 
 // search students not just by ID
-console.log(studentManager.searchStudents('au'));
+// console.log(studentManager.searchStudents('au'));
