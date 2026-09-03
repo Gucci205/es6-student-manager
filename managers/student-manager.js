@@ -11,7 +11,7 @@ export default class StudentManager{
     }
 
     returnStudents(){
-        return this.students_data;
+        return [...this.students_data];
     }
 
     findStudent(id){
@@ -63,7 +63,7 @@ export default class StudentManager{
 
             if(courseExists){
                 console.log('Duplicated Course ID found!');
-                return;
+                return student;
             }
 
             courses.push(newCourse);

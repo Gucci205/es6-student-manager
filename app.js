@@ -25,7 +25,7 @@ const studentManager = new StudentManager();
 studentManager.addStudent(student, student2, student3, student4, student5);     
 
 //receive the student object from StudentManager 
-// console.log(studentManager.returnStudents());    
+console.log(studentManager.returnStudents());  
 
 //find the student object with this id
 // console.log(studentManager.findStudent('001'));     
@@ -48,18 +48,13 @@ studentManager.addStudent(student, student2, student3, student4, student5);
 // console.log(studentManager.countStudentOfEachMajor());
 
 //add course to the student
-console.log(studentManager.addCourse('001', 
-    {
-        id: 'A01',
-        subject_name: 'Cloud Engineer',
-        score: 143
-    }
-    // {
-    //     id: 'A03',
-    //     subject_name: 'Data Analyst',
-    //     score: 173
-    // }
-));
+// console.log(studentManager.addCourse('001', 
+//     {
+//         id: 'A01',
+//         subject_name: 'Cloud Engineer',
+//         score: 143
+//     }
+// ));
 
 //find courses from a student
 // console.log(studentManager.findCourse('001', 'A01'));
