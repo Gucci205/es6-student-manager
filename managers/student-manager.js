@@ -53,11 +53,21 @@ export default class StudentManager{
         }, {});
     }
 
-    addCourse(id, ...newCourse){
+    addCourse(id, newCourse){
         const student = this.findStudent(id);
-
+        
         if(student){
-            student.courses.push(...newCourse);
+            const { courses } = student;
+
+            const courseExists = courses.some(course => course.id === newCourse.id);    //some() stops the iterating as soon as it returns true.
+
+            if(courseExists){
+                console.log('Duplicated Course ID found!');
+                return;
+            }
+
+            courses.push(newCourse);
+
             return student;
         }
 

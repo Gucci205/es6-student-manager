@@ -34,12 +34,12 @@ studentManager.addStudent(student, student2, student3, student4, student5);
 // console.log(studentManager.removeStudent('002'));   
 
 //update the student info
-console.log(studentManager.updateStudent('001', 
-    {
-        name: 'Berry',
-        email: 'berry@example.com',
-    }
-));
+// console.log(studentManager.updateStudent('001', 
+//     {
+//         name: 'Berry',
+//         email: 'berry@example.com',
+//     }
+// ));
 
 //print students report
 // console.log(studentManager.studentReport());
@@ -48,21 +48,21 @@ console.log(studentManager.updateStudent('001',
 // console.log(studentManager.countStudentOfEachMajor());
 
 //add course to the student
-// console.log(studentManager.addCourse('003', 
-//     {
-//         id: 'A03',
-//         subject_name: 'Cloud Engineer',
-//         score: 143
-//     },
-//     {
-//         id: 'A04',
-//         subject_name: 'Data Analyst',
-//         score: 173
-//     }
-// ));
+console.log(studentManager.addCourse('001', 
+    {
+        id: 'A01',
+        subject_name: 'Cloud Engineer',
+        score: 143
+    }
+    // {
+    //     id: 'A03',
+    //     subject_name: 'Data Analyst',
+    //     score: 173
+    // }
+));
 
 //find courses from a student
-// console.log(studentManager.findCourse('003', 'A03'));
+// console.log(studentManager.findCourse('001', 'A01'));
 
 //remove a course from a student
 // console.log(studentManager.removeCourse('003', 'A04'));
