@@ -23,7 +23,7 @@ student.courses.push(courseOne, courseTwo);
 const studentManager = new StudentManager();    
 
 //add each student object to studentManger object as a parameter through method 
-studentManager.addStudent(student, student2, student3, student4, student5, student6);     
+studentManager.addStudent(student, student2, student3, student4);     
 
 //receive the student object from StudentManager 
 // console.log(studentManager.returnStudents());  

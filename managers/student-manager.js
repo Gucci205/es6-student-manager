@@ -6,28 +6,21 @@ export default class StudentManager{
         this.students_data = [];
     }
 
-    addStudent(...student){
-        const arr = [...student];
-        const removeStudent = [];
+    addStudent(...students){    //rest collects all the arg as an array
+        for(let i = 0; i < students.length; i++){
 
-        for(let i = 0; i < arr.length; i++){
-            const matchID = arr[i].id;
-            for(let j = i + 1; j < arr.length; j++){
-                if(arr[j].id === matchID){
-                    removeStudent.push(arr[j]);
-                    arr.splice(j, 1);
-                    j--;
-                }
+            const alreadyExists = this.students_data.some(student => student.id === students[i].id);
+            
+            if(!alreadyExists){
+                this.students_data.push(students[i]);
+            }else{
+                console.log('Found student with duplicate ID', students[i].id);
             }
         }
-
-        console.log(removeStudent);
-        this.students_data.push(...arr);
-        console.log(this.students_data);
     }
 
     returnStudents(){
-        return [...this.students_data];
+        return [...this.students_data];     //returnning a copy of a student array
     }
 
     findStudent(id){
