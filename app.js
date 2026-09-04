@@ -25,7 +25,7 @@ const studentManager = new StudentManager();
 studentManager.addStudent(student, student2, student3, student4, student5);     
 
 //receive the student object from StudentManager 
-console.log(studentManager.returnStudents());  
+// console.log(studentManager.returnStudents());  
 
 //find the student object with this id
 // console.log(studentManager.findStudent('001'));     
@@ -34,12 +34,12 @@ console.log(studentManager.returnStudents());
 // console.log(studentManager.removeStudent('002'));   
 
 //update the student info
-// console.log(studentManager.updateStudent('001', 
-//     {
-//         name: 'Berry',
-//         email: 'berry@example.com',
-//     }
-// ));
+console.log(studentManager.updateStudent('001', 
+    {
+        name: 'Berry',
+        email: 'berry@example.com',
+    }
+));
 
 //print students report
 // console.log(studentManager.studentReport());

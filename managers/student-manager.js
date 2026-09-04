@@ -27,7 +27,7 @@ export default class StudentManager{
         let oldStudent = this.findStudent(id);
 
         if(oldStudent){
-            const updatedStudent = {...oldStudent, ...updatedInfo};
+            const updatedStudent = {...oldStudent, ...updatedInfo, id};     //a new ID a user could add can be overwrite by the last 'id' param
             oldStudent = updatedStudent;
 
             this.students_data = this.students_data.map((student) => {
@@ -96,7 +96,7 @@ export default class StudentManager{
     }
 
     updateCourseScore(id, courseId, updatedScore){
-        let course = this.findCourse(id, courseId);
+        const course = this.findCourse(id, courseId);
 
         if(course){
             course.score = updatedScore;
@@ -109,17 +109,15 @@ export default class StudentManager{
         const student = this.findStudent(id);
         
         if(student){
-            let totalScore = '';
-            let averageScore = '';
             const {name, courses = []} = student;
 
-            totalScore = courses.reduce((acc, curr) => {
+            const totalScore = courses.reduce((acc, curr) => {
                 acc += curr.score;
 
                 return acc;
             }, 0);
 
-            averageScore = courses.length > 0 ? totalScore / courses.length : 0;
+            const averageScore = courses.length > 0 ? totalScore / courses.length : 0;
 
             return {name, courses, averageScore};
         }
@@ -128,7 +126,7 @@ export default class StudentManager{
     }
 
     searchStudents(searchItems){
-        let result = this.students_data.filter((student) => {
+        const result = this.students_data.filter((student) => {
             const { name, major } = student;
             return name.toLowerCase().includes(searchItems.toLowerCase()) 
             || major.toLowerCase().includes(searchItems.toLowerCase());
