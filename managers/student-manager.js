@@ -29,7 +29,7 @@ export default class StudentManager{
 
     removeStudent(id){
         this.students_data = this.students_data.filter(student => student.id !== id);
-        return this.students_data;
+        return [...this.students_data];
     }
 
     updateStudent(id, updatedInfo){     //only 2 parameters, doesn't need to use 'rest' in this update method
