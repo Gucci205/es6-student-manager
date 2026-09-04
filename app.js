@@ -9,7 +9,8 @@ const student = new Student('001', 'Lwin', 21, 'lwin@example.com', 'Computer_Sci
 const student2 = new Student('002', 'Moe', 24, 'moe@example.com', 'Marketing');
 const student3 = new Student('003', 'Aung', 27, 'aung@example.com', 'Architecture');
 const student4 = new Student('004', 'Tony', 27, 'tony@example.com', 'Engineering');
-const student5 = new Student('005', 'Tony Tun Tun', 27, 'tonytuntun@example.com', 'Architecture');
+const student5 = new Student('001', 'Tony Tun Tun', 27, 'tonytuntun@example.com', 'Architecture');
+const student6 = new Student('002', 'Tony Tun Tun', 27, 'tonytuntun@example.com', 'Architecture');
 
 // create a course object
 const courseOne = new Course('A01', 'Web Development', 129);
@@ -22,7 +23,7 @@ student.courses.push(courseOne, courseTwo);
 const studentManager = new StudentManager();    
 
 //add each student object to studentManger object as a parameter through method 
-studentManager.addStudent(student, student2, student3, student4, student5);     
+studentManager.addStudent(student, student2, student3, student4, student5, student6);     
 
 //receive the student object from StudentManager 
 // console.log(studentManager.returnStudents());  
@@ -34,12 +35,12 @@ studentManager.addStudent(student, student2, student3, student4, student5);
 // console.log(studentManager.removeStudent('002'));   
 
 //update the student info
-console.log(studentManager.updateStudent('001', 
-    {
-        name: 'Berry',
-        email: 'berry@example.com',
-    }
-));
+// console.log(studentManager.updateStudent('001', 
+//     {
+//         name: 'Berry',
+//         email: 'berry@example.com',
+//     }
+// ));
 
 //print students report
 // console.log(studentManager.studentReport());

@@ -7,7 +7,23 @@ export default class StudentManager{
     }
 
     addStudent(...student){
-        this.students_data.push(...student);
+        const arr = [...student];
+        const removeStudent = [];
+
+        for(let i = 0; i < arr.length; i++){
+            const matchID = arr[i].id;
+            for(let j = i + 1; j < arr.length; j++){
+                if(arr[j].id === matchID){
+                    removeStudent.push(arr[j]);
+                    arr.splice(j, 1);
+                    j--;
+                }
+            }
+        }
+
+        console.log(removeStudent);
+        this.students_data.push(...arr);
+        console.log(this.students_data);
     }
 
     returnStudents(){
@@ -30,9 +46,9 @@ export default class StudentManager{
             const updatedStudent = {...oldStudent, ...updatedInfo, id};     //a new ID a user could add can be overwrite by the last 'id' param
             oldStudent = updatedStudent;
 
-            this.students_data = this.students_data.map((student) => {
-                return student.id === oldStudent.id ?  oldStudent : student;
-            });
+            this.students_data = this.students_data.map(student => 
+                student.id === oldStudent.id ?  oldStudent : student
+            );
             
         }
         
@@ -77,9 +93,7 @@ export default class StudentManager{
     findCourse(id, courseId){
         const student = this.findStudent(id);
 
-        if(student){
-            return student.courses.find(course => course.id === courseId);
-        }
+        if(student) return student.courses.find(course => course.id === courseId);
 
         console.log('No student found with this ID, try another ID');
     }
@@ -98,9 +112,7 @@ export default class StudentManager{
     updateCourseScore(id, courseId, updatedScore){
         const course = this.findCourse(id, courseId);
 
-        if(course){
-            course.score = updatedScore;
-        }
+        if(course) course.score = updatedScore;
 
         return this.findStudent(id);
     }
