@@ -8,58 +8,59 @@ import StudentManager from "./managers/student-manager.js";
 const student = new Student('001', 'Lwin', 21, 'lwin@example.com', 'Computer_Science');    
 const student2 = new Student('002', 'Moe', 24, 'moe@example.com', 'Marketing');
 const student3 = new Student('003', 'Aung', 27, 'aung@example.com', 'Architecture');
-const student4 = new Student('004', 'Tony', 27, 'tony@example.com', 'Engineering');
-const student5 = new Student('001', 'Tony Tun Tun', 27, 'tonytuntun@example.com', 'Architecture');
-const student6 = new Student('002', 'Tony Tun Tun', 27, 'tonytuntun@example.com', 'Architecture');
+const student4 = new Student('004', 'Tony', 21, 'tony@example.com', 'Engineering');
+const student5 = new Student('005', 'Tony Tun Tun', 24, 'tonytuntun@example.com', 'Architecture');
 
 // create a course object
 const courseOne = new Course('A01', 'Web Development', 129);
 const courseTwo = new Course('A02', 'Data Structure and Algorithms', 150);
+const courseThree = new Course('A04', 'Design', 169);
 
 //create a studentManager object
 const studentManager = new StudentManager();    
 
 //add each student object to studentManger object as a parameter through method 
-studentManager.addStudent(student, student2, student3, student4);     
+studentManager.addStudent(student, student2, student3, student4, student5);     
 
 //add course to the student
 console.log(studentManager.addCourse('001', courseOne));
-console.log(studentManager.addCourse('002', courseTwo));
+console.log(studentManager.addCourse('001', courseTwo));
+console.log(studentManager.addCourse('003', courseThree));
 
 // receive the student object from StudentManager 
-// console.log(studentManager.returnStudents());  
+console.log(studentManager.returnStudents());  
 
 //find the student object with this id
-// console.log(studentManager.findStudent('001'));     
+console.log(studentManager.findStudent('001'));     
 
 //only keep the student objects which doesn't match this id
-// console.log(studentManager.removeStudent('002'));   
+console.log(studentManager.removeStudent('002'));   
 
 //update the student info
-// console.log(studentManager.updateStudent('001', 
-//     {
-//         name: 'Berry',
-//         email: 'berry@example.com',
-//     }
-// ));
+console.log(studentManager.updateStudent('001', 
+    {
+        name: 'Berry',
+        email: 'berry@example.com',
+    }
+));
 
 //print students report
-// console.log(studentManager.studentReport());
+console.log(studentManager.studentReport());
 
 //count the number of student in each major
-// console.log(studentManager.countStudentOfEachMajor());
+console.log(studentManager.countStudentOfEachMajor());
 
 //find courses from a student
-// console.log(studentManager.findCourse('001', 'A01'));
+console.log(studentManager.findCourse('001', 'A01'));
 
 //remove a course from a student
-// console.log(studentManager.removeCourse('003', 'A04'));
+console.log(studentManager.removeCourse('003', 'A04'));
 
 //update score of a student
-// console.log(studentManager.updateCourseScore('001', 'A11', 111));
+console.log(studentManager.updateCourseScore('001', 'A01', 111));
 
 // summarizing a student academic report
-// console.log(studentManager.studentAcademicSummary('1'));
+console.log(studentManager.studentAcademicSummary('001'));
 
 // search students not just by ID
-// console.log(studentManager.searchStudents('au'));
+console.log(studentManager.searchStudents('n'));
