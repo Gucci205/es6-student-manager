@@ -16,16 +16,17 @@ const student6 = new Student('002', 'Tony Tun Tun', 27, 'tonytuntun@example.com'
 const courseOne = new Course('A01', 'Web Development', 129);
 const courseTwo = new Course('A02', 'Data Structure and Algorithms', 150);
 
-//add courses to a student object
-student.courses.push(courseOne, courseTwo);   
-
 //create a studentManager object
 const studentManager = new StudentManager();    
 
 //add each student object to studentManger object as a parameter through method 
 studentManager.addStudent(student, student2, student3, student4);     
 
-//receive the student object from StudentManager 
+//add course to the student
+console.log(studentManager.addCourse('001', courseOne));
+console.log(studentManager.addCourse('002', courseTwo));
+
+// receive the student object from StudentManager 
 // console.log(studentManager.returnStudents());  
 
 //find the student object with this id
@@ -47,15 +48,6 @@ studentManager.addStudent(student, student2, student3, student4);
 
 //count the number of student in each major
 // console.log(studentManager.countStudentOfEachMajor());
-
-//add course to the student
-// console.log(studentManager.addCourse('001', 
-//     {
-//         id: 'A01',
-//         subject_name: 'Cloud Engineer',
-//         score: 143
-//     }
-// ));
 
 //find courses from a student
 // console.log(studentManager.findCourse('001', 'A01'));
