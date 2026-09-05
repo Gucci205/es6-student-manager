@@ -5,21 +5,22 @@
 
 A console-based Student Management System built with Node.js to practice modern JavaScript (ES6–ES11) features through a practical project.
 
-The main goal of this project is not to build a complex application or user interface, but to strengthen my understanding of modern JavaScript by applying its features to real program logic.
+The project focuses on clean program logic and ES6+ features rather than a graphical interface.
 
 ## Features
 
-The application is being built step by step and currently supports:
-
-- Creating students and courses
-- Adding students to the student manager
-- Viewing students
-- Finding a student by ID
-- Removing a student
-- Updating student information
-- Generating simplified student reports
-
-More functionality is added as new JavaScript concepts are practiced.
+- Create `Student` and `Course` objects 
+- Add students with duplicate student-ID protection 
+- View all students without exposing the manager's internal array 
+- Find, update, and remove students by ID 
+- Generate simplified student reports 
+- Count students in each major
+- Add a course to a student
+- Prevent duplicate course IDs for the same student
+- Find and remove courses for a student
+- Update a student's score for a particular course
+- Generate an academic summary with the student's courses and average score
+- Search students by name or major
 
 ## JavaScript Concepts Practiced
 
@@ -39,6 +40,8 @@ This project is used to practice concepts such as:
   - `filter()`
   - `map()`
   - `reduce()`
+   - `some()`
+  - `includes()`
 
 The project will continue to use ES6–ES11 features where they naturally fit.
 
@@ -105,6 +108,4 @@ npm start
 
 ## Purpose
 
-This is a learning project.
-
-Rather than focusing on UI/UX, the project runs in the terminal.
+This is a learning project for applying ES6+ features in a realistic program. It currently runs in the terminal and uses sample operations in `app.js` rather than an interactive menu.
